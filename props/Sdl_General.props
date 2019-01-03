@@ -4,18 +4,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <IncludePath>C:\SDL2\SDL2_mixer\include;C:\SDL2\SDL2\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "C:\SDL2\SDL2\lib\x86\SDL2.dll" "$(SolutionDir)$(Configuration)\SDL2.dll"</Command>
-      <Message>Copy  "C:\SDL2\SDL2\lib\x86\SDL2.dll" to "$(SolutionDir)$(Configuration)\SDL2.dll"</Message>
+      <Command>copy /Y "C:\SDL2\SDL2\lib\$(PlatformTarget)\SDL2.dll" "$(SolutionDir)$(Configuration)\$(PlatformTarget)\SDL2.dll"</Command>
+      <Message>Copy  "C:\SDL2\SDL2\lib\$(PlatformTarget)\SDL2.dll" to "$(SolutionDir)$(Configuration)\$(PlatformTarget)\SDL2.dll"</Message>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>del "$(SolutionDir)$(Configuration)\SDL2.dll"</Command>
-      <Message>Delete "$(SolutionDir)$(Configuration)\SDL2.dll"</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup />
