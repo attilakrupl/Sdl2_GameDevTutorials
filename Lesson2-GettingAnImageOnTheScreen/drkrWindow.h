@@ -1,4 +1,8 @@
 #pragma once
+
+#include <SDL.h>
+#include <stdio.h>
+
 class drkrWindow
 {
 public:
@@ -10,6 +14,8 @@ public:
     void close();
 
 private:
-
+    SDL_Window* m_pWindow = nullptr;
+    SDL_Surface* m_pScreenSurface = nullptr;
+    SDL_Surface* m_pHelloWorld = nullptr;
 };
 
