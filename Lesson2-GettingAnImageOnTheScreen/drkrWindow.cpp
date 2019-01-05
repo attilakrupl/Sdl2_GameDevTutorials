@@ -8,13 +8,10 @@ const int SCREEN_HEIGHT = 480;
 
 
 drkrWindow::drkrWindow()
-{
-}
-
+{}
 
 drkrWindow::~drkrWindow()
-{
-}
+{}
 
 bool drkrWindow::init()
 {
@@ -46,10 +43,10 @@ bool drkrWindow::loadMedia()
 {
     bool lSuccess = true;
 
-    m_pHelloWorld = SDL_LoadBMP( "../../resources/hello_world.bmp" );
+    m_pHelloWorld = SDL_LoadBMP( "../../../../resources/bmp/hello_world.bmp" );
     if( m_pHelloWorld == nullptr )
     {
-        printf( "Unable to load image %s! SDL Error: %s\n", "../../resources/hello_world.bmp", SDL_GetError() );
+        printf( "Unable to load image %s! SDL Error: %s\n", "hello_world.bmp", SDL_GetError() );
         lSuccess = false;
     }
 
