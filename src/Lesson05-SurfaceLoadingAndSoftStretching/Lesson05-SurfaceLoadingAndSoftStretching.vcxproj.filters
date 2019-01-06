@@ -5,6 +5,9 @@
     <ClCompile Include="types\drkrWindow.cpp">
       <Filter>types</Filter>
     </ClCompile>
+    <ClCompile Include="types\drkrEventHandler.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="types">
@@ -13,6 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="types\drkrWindow.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="types\drkrEventHandler.h">
       <Filter>types</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,8 @@
 #include "drkrWindow.h"
+#include "h/macros.h"
+#include "h/consts.h"
+
+#include <SDL.h>
 
 drkrWindow::drkrWindow()
 {}
@@ -147,4 +151,9 @@ bool drkrWindow::updateWindow()
     }
 
     return true;
+}
+
+void drkrWindow::setSurface(const DRKR::KeyPressSurfaces aSurfaceEnum )
+{
+    setCurrentSurface( getSurface( aSurfaceEnum ) );
 }

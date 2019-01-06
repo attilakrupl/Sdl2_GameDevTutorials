@@ -132,9 +132,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="types\drkrEventHandler.cpp" />
     <ClCompile Include="types\drkrWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="types\drkrEventHandler.h" />
     <ClInclude Include="types\drkrWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
