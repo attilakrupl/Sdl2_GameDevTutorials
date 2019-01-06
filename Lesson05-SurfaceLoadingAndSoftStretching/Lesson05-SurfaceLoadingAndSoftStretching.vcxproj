@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{026E75E6-D4A7-493A-A190-8986DE098826}</ProjectGuid>
+    <ProjectGuid>{8CAA240B-97FC-4D8E-A36B-C717201DA4C6}</ProjectGuid>
     <RootNamespace>Lesson05SurfaceLoadingAndSoftStretching</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
