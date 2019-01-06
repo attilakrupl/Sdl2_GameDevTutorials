@@ -1,11 +1,10 @@
 #pragma once
 
-#include <SDL.h>
-
-#include <stdio.h>
 #include <string>
-
 #include "h/enums.h"
+
+struct SDL_Surface;
+struct SDL_Window;
 
 class drkrWindow
 {
@@ -16,11 +15,12 @@ public:
     bool init();
     bool loadMedia();
     void close();
-    SDL_Surface* loadSurface( std::string path );
+    SDL_Surface* loadSurface( std::string aPath );
 
     void setCurrentSurface( SDL_Surface* aSurface );
     SDL_Surface* getCurrentSurface();
-    SDL_Surface* getSurface( DRKR::KeyPressSurfaces aSurfaceEnum );
+    SDL_Surface* getSurface( const DRKR::KeyPressSurfaces aSurfaceEnum );
+    void setSurface( const DRKR::KeyPressSurfaces aSurfaceEnum );
 
     bool updateWindow();
 

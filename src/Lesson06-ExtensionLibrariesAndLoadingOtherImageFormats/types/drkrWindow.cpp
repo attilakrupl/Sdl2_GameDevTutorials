@@ -1,6 +1,9 @@
 #include "drkrWindow.h"
-#include "h/consts.h"
 #include "h/macros.h"
+#include "h/consts.h"
+
+#include <SDL.h>
+#include <SDL_image.h>
 
 drkrWindow::drkrWindow()
 {}
@@ -12,7 +15,7 @@ bool drkrWindow::init()
 {
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+        PRINT_ERROR( SDL_GetError() );
         return false;
     }
 
@@ -25,7 +28,14 @@ bool drkrWindow::init()
 
     if( m_pWindow == nullptr )
     {
-        printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+        PRINT_ERROR( SDL_GetError() );
+        return false;
+    }
+
+    int imgFlags = IMG_INIT_PNG;
+    if( !( IMG_Init( imgFlags ) & imgFlags ) )
+    {
+        PRINT_ERROR( IMG_GetError() );
         return false;
     }
 
@@ -37,38 +47,38 @@ bool drkrWindow::init()
 bool drkrWindow::loadMedia()
 {
     bool lSuccess = true;
-    m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "../../../../resources/bmp/press.bmp" );
+    m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_DEFAULT ] = loadSurface( "../../../../resources/png/loaded.png" );
     if( m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_DEFAULT ] == nullptr )
     {
-        printf( "Failed to load default image!\n" );
+        PRINT_ERROR("Failed to load default image!");
         lSuccess = false;
     }
 
     m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_UP ] = loadSurface( "../../../../resources/bmp/up.bmp" );
     if( m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_UP ] == nullptr )
     {
-        printf( "Failed to load up image!\n" );
+        PRINT_ERROR( "Failed to load up image!" );
         lSuccess = false;
     }
 
     m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_DOWN ] = loadSurface( "../../../../resources/bmp/down.bmp" );
     if( m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_DOWN ] == nullptr )
     {
-        printf( "Failed to load down image!\n" );
+        PRINT_ERROR( "Failed to load down image!" );
         lSuccess = false;
     }
 
     m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_LEFT ] = loadSurface( "../../../../resources/bmp/left.bmp" );
     if( m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_LEFT ] == nullptr )
     {
-        printf( "Failed to load left image!\n" );
+        PRINT_ERROR( "Failed to load left image!" );
         lSuccess = false;
     }
 
     m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_RIGHT ] = loadSurface( "../../../../resources/bmp/right.bmp" );
     if( m_pKeyPressSurfaces[ DRKR::KeyPressSurfaces::KEY_PRESS_SURFACE_RIGHT ] == nullptr )
     {
-        printf( "Failed to load right image!\n" );
+        PRINT_ERROR( "Failed to load right image!" );
         lSuccess = false;
     }
 
@@ -91,13 +101,23 @@ void drkrWindow::close()
 
 SDL_Surface* drkrWindow::loadSurface( std::string aPath )
 {
+    SDL_Surface* lOptimizedSurface = nullptr;
+
     SDL_Surface* lLoadedSurface = SDL_LoadBMP( aPath.c_str() );
     if( lLoadedSurface == nullptr )
     {
-        printf( "Unable to load image %s! SDL Error: %s\n", aPath.c_str(), SDL_GetError() );
+        PRINT_ERROR( SDL_GetError() );
     }
-
-    return lLoadedSurface;
+    else
+    {
+        lOptimizedSurface = SDL_ConvertSurface( lLoadedSurface, m_pScreenSurface->format, NULL );
+        if( lOptimizedSurface == nullptr )
+        {
+            PRINT_ERROR( SDL_GetError() );
+        }
+        SDL_FreeSurface( lLoadedSurface );
+    }
+    return lOptimizedSurface;
 }
 
 void drkrWindow::setCurrentSurface( SDL_Surface * aSurface )
@@ -118,7 +138,13 @@ SDL_Surface * drkrWindow::getSurface( DRKR::KeyPressSurfaces aSurfaceEnum )
 
 bool drkrWindow::updateWindow()
 {
-    int lRetVal = SDL_BlitSurface( m_pCurrentSurface, NULL, m_pScreenSurface, NULL );
+    SDL_Rect lStretchRect;
+    lStretchRect.x = 0;
+    lStretchRect.y = 0;
+    lStretchRect.w = DRKR::SCREEN_WIDTH;
+    lStretchRect.h = DRKR::SCREEN_HEIGHT;
+
+    int lRetVal = SDL_BlitScaled( m_pCurrentSurface, NULL, m_pScreenSurface, &lStretchRect );
     if( DRKR_FAIL(lRetVal) )
     {
         PRINT_ERROR( SDL_GetError() );
@@ -133,4 +159,9 @@ bool drkrWindow::updateWindow()
     }
 
     return true;
+}
+
+void drkrWindow::setSurface(const DRKR::KeyPressSurfaces aSurfaceEnum )
+{
+    setCurrentSurface( getSurface( aSurfaceEnum ) );
 }

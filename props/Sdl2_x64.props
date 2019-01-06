@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <LibraryPath>C:\SDL2\SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\SDL2\SDL2\lib\x64;C:\SDL2\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup />
