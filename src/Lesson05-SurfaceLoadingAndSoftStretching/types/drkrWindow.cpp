@@ -126,7 +126,13 @@ SDL_Surface * drkrWindow::getSurface( DRKR::KeyPressSurfaces aSurfaceEnum )
 
 bool drkrWindow::updateWindow()
 {
-    int lRetVal = SDL_BlitSurface( m_pCurrentSurface, NULL, m_pScreenSurface, NULL );
+    SDL_Rect lStretchRect;
+    lStretchRect.x = 0;
+    lStretchRect.y = 0;
+    lStretchRect.w = DRKR::SCREEN_WIDTH;
+    lStretchRect.h = DRKR::SCREEN_HEIGHT;
+
+    int lRetVal = SDL_BlitScaled( m_pCurrentSurface, NULL, m_pScreenSurface, &lStretchRect );
     if( DRKR_FAIL(lRetVal) )
     {
         PRINT_ERROR( SDL_GetError() );
