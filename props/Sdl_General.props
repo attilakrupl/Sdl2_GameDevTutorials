@@ -11,6 +11,7 @@
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "C:\SDL2\SDL2\lib\$(PlatformTarget)\SDL2.dll" "$(SolutionDir)..\bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\SDL2.dll"</Command>

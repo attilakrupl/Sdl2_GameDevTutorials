@@ -1,0 +1,27 @@
+SDL.h	
+			SDL_Init(Uint32 flags)	This function initializes  the subsystems specified by flags
+				SDL_INIT_TIMER          0x00000001u
+				SDL_INIT_AUDIO          0x00000010u
+				SDL_INIT_VIDEO          0x00000020u  /**< SDL_INIT_VIDEO implies SDL_INIT_EVENTS */
+				SDL_INIT_JOYSTICK       0x00000200u  /**< SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS */
+				SDL_INIT_HAPTIC         0x00001000u
+				SDL_INIT_GAMECONTROLLER 0x00002000u  /**< SDL_INIT_GAMECONTROLLER implies SDL_INIT_JOYSTICK */
+				SDL_INIT_EVENTS         0x00004000u
+				SDL_INIT_NOPARACHUTE    0x00100000u 
+				
+SDL_video.h	
+			SDL_CreateWindow(const char *title, int x, int y, int w, int h, Uint32 flags)	Create a window with the specified position, dimensions, and flags.
+				for x and y:
+					::SDL_WINDOWPOS_CENTERED
+					::SDL_WINDOWPOS_UNDEFINED
+				for flags:
+					::SDL_WINDOW_FULLSCREEN
+					::SDL_WINDOW_HIDDEN      
+					::SDL_WINDOW_RESIZABLE     
+					::SDL_WINDOW_MINIMIZED     
+					::SDL_WINDOW_ALLOW_HIGHDPI 
+					::SDL_WINDOW_OPENGL
+					::SDL_WINDOW_BORDERLESS
+					::SDL_WINDOW_MAXIMIZED
+					::SDL_WINDOW_INPUT_GRABBED
+					::SDL_WINDOW_VULKAN

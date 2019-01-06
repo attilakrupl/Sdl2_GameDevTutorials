@@ -21,9 +21,9 @@ bool drkrWindow::init()
     m_pWindow = SDL_CreateWindow( "SDL Tutorial"
         , SDL_WINDOWPOS_UNDEFINED
         , SDL_WINDOWPOS_UNDEFINED
-        , DRKR::SCREEN_WIDTH
-        , DRKR::SCREEN_HEIGHT
-        , SDL_WINDOW_SHOWN );
+        , 0
+        , 0
+        , SDL_WINDOW_FULLSCREEN );
 
     if( m_pWindow == nullptr )
     {

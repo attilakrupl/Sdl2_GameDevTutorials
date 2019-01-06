@@ -44,7 +44,7 @@ drkrEventHandler::drkrEventHandler( drkrWindow * aWindow ) :
 {
 }
 
-void drkrEventHandler::runEventLoop()
+bool drkrEventHandler::runEventLoop()
 {
     bool lQuit = false;
     while( !lQuit )
@@ -57,6 +57,8 @@ void drkrEventHandler::runEventLoop()
         if( !m_pWindow->updateWindow() )
         {
             PRINT_ERROR( "Failed to update window." );
+            return false;
         }
     }
+    return lQuit;
 }

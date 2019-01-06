@@ -9,7 +9,7 @@ public:
     drkrEventHandler(drkrWindow* aWindow);
     ~drkrEventHandler() = default;
 
-    void runEventLoop();
+    bool runEventLoop();
 
 private:
     drkrWindow* m_pWindow;

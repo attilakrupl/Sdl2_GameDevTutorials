@@ -13,6 +13,12 @@
     <Filter Include="types">
       <UniqueIdentifier>{082adb87-d5cf-4a88-840c-cb4f378c45a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{666fae39-7912-4d7f-98de-27fa200319d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\h">
+      <UniqueIdentifier>{467f37a9-1e81-496f-8122-7da7d22d3134}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="types\drkrWindow.h">
@@ -20,6 +26,18 @@
     </ClInclude>
     <ClInclude Include="types\drkrEventHandler.h">
       <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\resources\h\consts.h">
+      <Filter>resources\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\resources\h\enums.h">
+      <Filter>resources\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\resources\h\macros.h">
+      <Filter>resources\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\resources\h\tlscallback.h">
+      <Filter>resources\h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
