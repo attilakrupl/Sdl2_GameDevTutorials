@@ -16,13 +16,13 @@ int main( int argc, char* args[] )
 
     if( !lWindow.init() )
     {
-        printf( "Failed to initialize!\n" );
+        PRINT_ERROR( "Failed to initialize!" );
         return -1;
     }
    
     if( !lWindow.loadMedia() )
     {
-        printf( "Failed to load media!\n" );
+        PRINT_ERROR( "Failed to load media" );
         return -1;
     }
 
@@ -67,6 +67,7 @@ int main( int argc, char* args[] )
         }
         if( !lWindow.updateWindow() )
         {
+            PRINT_ERROR( "Failed to update window." );
             return -1;
         }
     }

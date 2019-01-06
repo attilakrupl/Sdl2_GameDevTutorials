@@ -16,7 +16,7 @@ public:
     bool init();
     bool loadMedia();
     void close();
-    SDL_Surface* loadSurface( std::string path );
+    SDL_Surface* loadSurface( std::string aPath );
 
     void setCurrentSurface( SDL_Surface* aSurface );
     SDL_Surface* getCurrentSurface();

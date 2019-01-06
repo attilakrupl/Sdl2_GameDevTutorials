@@ -119,14 +119,14 @@ bool drkrWindow::updateWindow()
     int lRetVal = SDL_BlitSurface( m_pCurrentSurface, NULL, m_pScreenSurface, NULL );
     if( DRKR_FAIL(lRetVal) )
     {
-        PRINT_ERROR( "Surface copy failed. Error: %s, File: %s, Line: %d", SDL_GetError() , __FILE__, __LINE__ );
+        PRINT_ERROR( SDL_GetError() );
         return false;
     }
 
     lRetVal = SDL_UpdateWindowSurface( m_pWindow );
     if( DRKR_FAIL( lRetVal ) )
     {
-        PRINT_ERROR( "Window surface update failed. Error: %s, File: %s, Line: %d", SDL_GetError(), __FILE__, __LINE__ );
+        PRINT_ERROR( SDL_GetError() );
         return false;
     }
 
