@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson1-HelloSdl", "Lesson1-HelloSdl\Lesson1-HelloSdl.vcxproj", "{83CE1880-FE57-4407-A4A7-8690493AE50D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson01-HelloSdl", "Lesson01-HelloSdl\Lesson01-HelloSdl.vcxproj", "{83CE1880-FE57-4407-A4A7-8690493AE50D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson2-GettingAnImageOnTheScreen", "Lesson2-GettingAnImageOnTheScreen\Lesson2-GettingAnImageOnTheScreen.vcxproj", "{7310AF55-3F8A-4C48-903F-E56962247FC5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson02-GettingAnImageOnTheScreen", "Lesson02-GettingAnImageOnTheScreen\Lesson02-GettingAnImageOnTheScreen.vcxproj", "{7310AF55-3F8A-4C48-903F-E56962247FC5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson3-EventDrivenProgramming", "Lesson3-EventDrivenProgramming\Lesson3-EventDrivenProgramming.vcxproj", "{500AB41B-B60B-43C6-A5CB-3B69B604B4DB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson03-EventDrivenProgramming", "Lesson03-EventDrivenProgramming\Lesson03-EventDrivenProgramming.vcxproj", "{500AB41B-B60B-43C6-A5CB-3B69B604B4DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson04-KeyPress", "Lesson04-KeyPress\Lesson04-KeyPress.vcxproj", "{026E75E6-D4A7-493A-A190-8986DE098826}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{500AB41B-B60B-43C6-A5CB-3B69B604B4DB}.Release|x64.Build.0 = Release|x64
 		{500AB41B-B60B-43C6-A5CB-3B69B604B4DB}.Release|x86.ActiveCfg = Release|Win32
 		{500AB41B-B60B-43C6-A5CB-3B69B604B4DB}.Release|x86.Build.0 = Release|Win32
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Debug|x64.ActiveCfg = Debug|x64
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Debug|x64.Build.0 = Debug|x64
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Debug|x86.ActiveCfg = Debug|Win32
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Debug|x86.Build.0 = Debug|Win32
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Release|x64.ActiveCfg = Release|x64
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Release|x64.Build.0 = Release|x64
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Release|x86.ActiveCfg = Release|Win32
+		{026E75E6-D4A7-493A-A190-8986DE098826}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

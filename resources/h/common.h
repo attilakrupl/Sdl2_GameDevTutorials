@@ -1,13 +1,19 @@
-#include <string>
-
-static std::string DRKR_BMP_PATH_ROOT = "../../resources/bmp/";
+#define DRKR_FAIL(x) x!=0
+#define DRKR_SUCCESS(x) x==0
+#define PRINT_ERROR(s, ...) printf(s, __VA_ARGS__)
 
 namespace DRKR
 {
-    static const char* COMPOSE_PATH( const std::string& aRootPath, const std::string& aFileName )
+    const int SCREEN_WIDTH = 640;
+    const int SCREEN_HEIGHT = 480;
+
+    enum KeyPressSurfaces
     {
-        std::string lResult = aRootPath;
-        lResult.append( aFileName );
-        return lResult.c_str();
-    }
+        KEY_PRESS_SURFACE_DEFAULT,
+        KEY_PRESS_SURFACE_UP,
+        KEY_PRESS_SURFACE_DOWN,
+        KEY_PRESS_SURFACE_LEFT,
+        KEY_PRESS_SURFACE_RIGHT,
+        KEY_PRESS_SURFACE_TOTAL
+    };
 }

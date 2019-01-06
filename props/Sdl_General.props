@@ -10,6 +10,7 @@
   <ItemDefinitionGroup>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "C:\SDL2\SDL2\lib\$(PlatformTarget)\SDL2.dll" "$(SolutionDir)bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\SDL2.dll"</Command>
@@ -23,6 +24,7 @@
     </PreBuildEvent>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />
