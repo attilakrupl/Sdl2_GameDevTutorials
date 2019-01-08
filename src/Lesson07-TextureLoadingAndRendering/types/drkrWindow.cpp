@@ -127,6 +127,9 @@ void drkrWindow::close()
     SDL_DestroyTexture( m_pTexture );
     m_pTexture = nullptr;
 
+    SDL_DestroyRenderer( m_pRenderer );
+    m_pRenderer = nullptr;
+
     SDL_DestroyWindow( m_pWindow );
     m_pWindow = nullptr;
 
@@ -214,6 +217,31 @@ bool drkrWindow::updateWindow()
     }
 
     return true;
+}
+
+bool drkrWindow::renderScreen()
+{
+          bool lRenderSucceeded   = true;
+    const int  lRenderClearResult = SDL_RenderClear( m_pRenderer );
+    if( DRKR_FAIL( lRenderClearResult ) )
+    {
+        lRenderSucceeded = false;
+        PRINT_ERROR(SDL_GetError());
+    }
+
+    const int lRenderCopyResult = SDL_RenderCopy( m_pRenderer
+                                                , m_pTexture
+                                                , nullptr
+                                                , nullptr );
+    if( DRKR_FAIL( lRenderCopyResult ) )
+    {
+        lRenderSucceeded = false;
+        PRINT_ERROR( SDL_GetError() );
+    }
+
+    SDL_RenderPresent( m_pRenderer );
+
+    return lRenderSucceeded;
 }
 
 void drkrWindow::setSurface(const DRKR::KeyPressSurfaces aSurfaceEnum )

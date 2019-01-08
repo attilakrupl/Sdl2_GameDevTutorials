@@ -6,6 +6,7 @@
 struct SDL_Surface;
 struct SDL_Window;
 struct SDL_Texture;
+struct SDL_Renderer;
 
 class drkrWindow
 {
@@ -25,6 +26,7 @@ public:
     void setSurface( const DRKR::KeyPressSurfaces aSurfaceEnum );
 
     bool updateWindow();
+    bool renderScreen();
 
 private:
     SDL_Renderer* m_pRenderer       = nullptr;

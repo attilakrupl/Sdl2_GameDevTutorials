@@ -54,7 +54,7 @@ bool drkrEventHandler::runEventLoop()
         {
             handleEvent( &lEvent, lQuit );
         }
-        if( !m_pWindow->updateWindow() )
+        if( !m_pWindow->renderScreen() )
         {
             PRINT_ERROR( "Failed to update window." );
             return false;
