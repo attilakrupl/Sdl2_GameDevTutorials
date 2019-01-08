@@ -20,11 +20,11 @@ bool drkrWindow::init()
     }
 
     m_pWindow = SDL_CreateWindow( "SDL Tutorial"
-        , SDL_WINDOWPOS_UNDEFINED
-        , SDL_WINDOWPOS_UNDEFINED
-        , DRKR::SCREEN_WIDTH
-        , DRKR::SCREEN_HEIGHT
-        , SDL_WINDOW_SHOWN );
+                                , SDL_WINDOWPOS_UNDEFINED
+                                , SDL_WINDOWPOS_UNDEFINED
+                                , DRKR::SCREEN_WIDTH
+                                , DRKR::SCREEN_HEIGHT
+                                , SDL_WINDOW_SHOWN );
 
     if( m_pWindow == nullptr )
     {
@@ -96,6 +96,7 @@ void drkrWindow::close()
     SDL_DestroyWindow( m_pWindow );
     m_pWindow = nullptr;
 
+    IMG_Quit();
     SDL_Quit();
 }
 
@@ -103,7 +104,7 @@ SDL_Surface* drkrWindow::loadSurface( std::string aPath )
 {
     SDL_Surface* lOptimizedSurface = nullptr;
 
-    SDL_Surface* lLoadedSurface = SDL_LoadBMP( aPath.c_str() );
+    SDL_Surface* lLoadedSurface = IMG_Load( aPath.c_str() );
     if( lLoadedSurface == nullptr )
     {
         PRINT_ERROR( SDL_GetError() );
