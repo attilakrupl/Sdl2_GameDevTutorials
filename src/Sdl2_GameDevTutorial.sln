@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson05-SurfaceLoadingAndS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson06-ExtensionLibrariesAndLoadingOtherImageFormats", "Lesson06-ExtensionLibrariesAndLoadingOtherImageFormats\Lesson06-ExtensionLibrariesAndLoadingOtherImageFormats.vcxproj", "{C02140D0-3438-4CCA-B5D2-6D188BB6015E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson07-TextureLoadingAndRendering", "Lesson07-TextureLoadingAndRendering\Lesson07-TextureLoadingAndRendering.vcxproj", "{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{C02140D0-3438-4CCA-B5D2-6D188BB6015E}.Release|x64.Build.0 = Release|x64
 		{C02140D0-3438-4CCA-B5D2-6D188BB6015E}.Release|x86.ActiveCfg = Release|Win32
 		{C02140D0-3438-4CCA-B5D2-6D188BB6015E}.Release|x86.Build.0 = Release|Win32
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Debug|x64.ActiveCfg = Debug|x64
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Debug|x64.Build.0 = Debug|x64
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Debug|x86.ActiveCfg = Debug|Win32
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Debug|x86.Build.0 = Debug|Win32
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Release|x64.ActiveCfg = Release|x64
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Release|x64.Build.0 = Release|x64
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Release|x86.ActiveCfg = Release|Win32
+		{51E25CCF-6FF4-4DEE-BDB5-20D035BA9576}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
