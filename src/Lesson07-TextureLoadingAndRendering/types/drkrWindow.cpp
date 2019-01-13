@@ -8,7 +8,7 @@
 static const constexpr unsigned int HEX_MAX_COLOR_COMPONENT = 0xFF;
 static const constexpr unsigned int HEX_RED_COLOR_COMPONENT = 0x2F;
 static const constexpr unsigned int HEX_GREEN_COLOR_COMPONENT = 0x48;
-static const constexpr unsigned int HEX_BLUE_COLOR_COMPONENT = 0x12;
+static const constexpr unsigned int HEX_BLUE_COLOR_COMPONENT = 0xe2;
 
 drkrWindow::drkrWindow()
 {}
@@ -232,15 +232,15 @@ bool drkrWindow::renderScreen()
         PRINT_ERROR(SDL_GetError());
     }
 
-    //const int lRenderCopyResult = SDL_RenderCopy( m_pRenderer
-    //                                            , m_pTexture
-    //                                            , nullptr
-    //                                            , nullptr );
-    //if( DRKR_FAIL( lRenderCopyResult ) )
-    //{
-    //    lRenderSucceeded = false;
-    //    PRINT_ERROR( SDL_GetError() );
-    //}
+    const int lRenderCopyResult = SDL_RenderCopy( m_pRenderer
+                                                , m_pTexture
+                                                , nullptr
+                                                , nullptr );
+    if( DRKR_FAIL( lRenderCopyResult ) )
+    {
+        lRenderSucceeded = false;
+        PRINT_ERROR( SDL_GetError() );
+    }
 
     SDL_RenderPresent( m_pRenderer );
 
