@@ -120,20 +120,20 @@ SDL_Texture* drkrWindow::loadTexture( std::string aPath )
 
 bool drkrWindow::renderScreen()
 {
-    bool lRenderSucceeded = true;
+    bool lRenderSucceeded  = true;
+    int  lRenderResult     = SDL_SetRenderDrawColor( m_pRenderer
+                                                   , 0xFF
+                                                   , 0xFF
+                                                   , 0xFF
+                                                   , 0xFF );
+         lRenderSucceeded &= handleRenderError( lRenderResult );
+         lRenderResult     = SDL_RenderClear( m_pRenderer );
+         lRenderSucceeded &= handleRenderError( lRenderResult );
 
-    int  lRenderResult    = SDL_SetRenderDrawColor( m_pRenderer
-                                                                 , 0xFF
-                                                                 , 0xFF
-                                                                 , 0xFF
-                                                                 , 0xFF );
-    lRenderSucceeded &= handleRenderError( lRenderResult );
-
-    SDL_Rect fillRect = { DRKR::SCREEN_WIDTH / 4
+    SDL_Rect fillRect = { DRKR::SCREEN_WIDTH  / 4
                         , DRKR::SCREEN_HEIGHT / 4
-                        , DRKR::SCREEN_WIDTH / 2
+                        , DRKR::SCREEN_WIDTH  / 2
                         , DRKR::SCREEN_HEIGHT / 2 };
-
     lRenderResult     = SDL_SetRenderDrawColor( m_pRenderer
                                               , 0xFF
                                               , 0x00
@@ -144,7 +144,6 @@ bool drkrWindow::renderScreen()
     lRenderResult        = SDL_RenderFillRect( m_pRenderer
                                              , &fillRect );
     lRenderSucceeded    &= handleRenderError( lRenderResult );
-
     SDL_Rect outlineRect = { DRKR::SCREEN_WIDTH / 6
                            , DRKR::SCREEN_HEIGHT / 6
                            , DRKR::SCREEN_WIDTH * 2 / 3
