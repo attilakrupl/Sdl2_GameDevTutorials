@@ -84,13 +84,23 @@ bool drkrWindow::init()
 bool drkrWindow::loadMedia()
 {
     bool lSuccess = true;
+
+    m_pTexture = loadTexture( "../../../../resources/png/viewport.png" );
+    if( m_pTexture == NULL )
+    {
+        printf( "Failed to load texture image!\n" );
+        lSuccess = false;
+    }
+
     return lSuccess;
 }
 
 void drkrWindow::close()
 {
+    SDL_DestroyTexture( m_pTexture );
     SDL_DestroyRenderer( m_pRenderer );
     SDL_DestroyWindow( m_pWindow );
+    m_pTexture = nullptr;
     m_pRenderer = nullptr;
     m_pWindow = nullptr;
 
@@ -121,72 +131,30 @@ SDL_Texture* drkrWindow::loadTexture( std::string aPath )
 bool drkrWindow::renderScreen()
 {
     bool lRenderSucceeded  = true;
-    int  lRenderResult     = SDL_SetRenderDrawColor( m_pRenderer
-                                                   , 0xFF
-                                                   , 0xFF
-                                                   , 0xFF
-                                                   , 0xFF );
-         lRenderSucceeded &= handleRenderError( lRenderResult );
-         lRenderResult     = SDL_RenderClear( m_pRenderer );
-         lRenderSucceeded &= handleRenderError( lRenderResult );
-
-    SDL_Rect fillRect = { DRKR::SCREEN_WIDTH  / 4
-                        , DRKR::SCREEN_HEIGHT / 4
-                        , DRKR::SCREEN_WIDTH  / 2
-                        , DRKR::SCREEN_HEIGHT / 2 };
-    lRenderResult     = SDL_SetRenderDrawColor( m_pRenderer
-                                              , 0xFF
-                                              , 0x00
-                                              , 0x00
-                                              , 0xFF );
+ 
+    int lRenderResult = SDL_SetRenderDrawColor( m_pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+    lRenderSucceeded &= handleRenderError( lRenderResult );
+        lRenderResult = SDL_RenderClear( m_pRenderer );
     lRenderSucceeded &= handleRenderError( lRenderResult );
 
-    lRenderResult        = SDL_RenderFillRect( m_pRenderer
-                                             , &fillRect );
-    lRenderSucceeded    &= handleRenderError( lRenderResult );
-    SDL_Rect outlineRect = { DRKR::SCREEN_WIDTH / 6
-                           , DRKR::SCREEN_HEIGHT / 6
-                           , DRKR::SCREEN_WIDTH * 2 / 3
-                           , DRKR::SCREEN_HEIGHT * 2 / 3 };
-    lRenderResult        = SDL_SetRenderDrawColor( m_pRenderer
-                                                 , 0x00
-                                                 , 0xFF
-                                                 , 0x00
-                                                 , 0xFF );
-    lRenderSucceeded    &= handleRenderError( lRenderResult );
-
-    lRenderResult        = SDL_RenderDrawRect( m_pRenderer
-                                             , &outlineRect );
-    lRenderSucceeded    &= handleRenderError( lRenderResult );
-
-    lRenderResult     = SDL_SetRenderDrawColor( m_pRenderer
-                                              , 0x00
-                                              , 0x00
-                                              , 0xFF
-                                              , 0xFF );
+    SDL_Rect lTopLeftViewport{ 0, 0, DRKR::SCREEN_WIDTH / 2 , DRKR::SCREEN_HEIGHT / 2 };
+    lRenderResult     = SDL_RenderSetViewport( m_pRenderer, &lTopLeftViewport );
+    lRenderSucceeded &= handleRenderError( lRenderResult );
+    lRenderResult     = SDL_RenderCopy( m_pRenderer, m_pTexture, NULL, NULL );
     lRenderSucceeded &= handleRenderError( lRenderResult );
 
-    lRenderResult     = SDL_RenderDrawLine( m_pRenderer
-                                          , 0
-                                          , DRKR::SCREEN_HEIGHT / 2
-                                          , DRKR::SCREEN_WIDTH
-                                          , DRKR::SCREEN_HEIGHT / 2 );
+    SDL_Rect lTopRightViewport{ DRKR::SCREEN_WIDTH / 2 , 0, DRKR::SCREEN_WIDTH / 2, DRKR::SCREEN_HEIGHT / 2 };
+    lRenderResult     = SDL_RenderSetViewport( m_pRenderer, &lTopRightViewport );
+    lRenderSucceeded &= handleRenderError( lRenderResult );
+    lRenderResult     = SDL_RenderCopy( m_pRenderer, m_pTexture, NULL, NULL );
     lRenderSucceeded &= handleRenderError( lRenderResult );
 
-    lRenderResult = SDL_SetRenderDrawColor( m_pRenderer
-                                          , 0xFF
-                                          , 0xFF
-                                          , 0x00
-                                          , 0xFF );
+    SDL_Rect bottomViewport{0, DRKR::SCREEN_HEIGHT / 2, DRKR::SCREEN_WIDTH, DRKR::SCREEN_HEIGHT / 2 };
+    lRenderResult     = SDL_RenderSetViewport( m_pRenderer, &bottomViewport );
+    lRenderSucceeded &= handleRenderError( lRenderResult );
+    lRenderResult     = SDL_RenderCopy( m_pRenderer, m_pTexture, NULL, NULL );
     lRenderSucceeded &= handleRenderError( lRenderResult );
 
-    for( int i = 0; i < DRKR::SCREEN_HEIGHT; i += 4 )
-    {
-        lRenderResult += SDL_RenderDrawPoint( m_pRenderer
-                                            , DRKR::SCREEN_WIDTH / 2
-                                            , i );
-    }
-    lRenderSucceeded &= handleRenderError( lRenderResult );
     SDL_RenderPresent( m_pRenderer );
 
     return lRenderSucceeded;
