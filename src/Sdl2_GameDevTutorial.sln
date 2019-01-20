@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson08-GeometryRendering"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson09-TheViewport", "Lesson09-TheViewport\Lesson09-TheViewport.vcxproj", "{565A5920-12B1-4679-9F7A-74CA723D26DB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson10-ColorKeying", "Lesson10-ColorKeying\Lesson10-ColorKeying.vcxproj", "{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{565A5920-12B1-4679-9F7A-74CA723D26DB}.Release|x64.Build.0 = Release|x64
 		{565A5920-12B1-4679-9F7A-74CA723D26DB}.Release|x86.ActiveCfg = Release|Win32
 		{565A5920-12B1-4679-9F7A-74CA723D26DB}.Release|x86.Build.0 = Release|Win32
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Debug|x64.ActiveCfg = Debug|x64
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Debug|x64.Build.0 = Debug|x64
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Debug|x86.ActiveCfg = Debug|Win32
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Debug|x86.Build.0 = Debug|Win32
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Release|x64.ActiveCfg = Release|x64
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Release|x64.Build.0 = Release|x64
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Release|x86.ActiveCfg = Release|Win32
+		{CB314862-6C9B-4320-9CF0-EF37FF36CE7F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
