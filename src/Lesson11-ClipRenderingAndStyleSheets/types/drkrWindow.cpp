@@ -90,25 +90,25 @@ bool drkrWindow::loadMedia()
     else
     {
 
-        m_pSpriteClips[ 0 ]->x = 0;
-        m_pSpriteClips[ 0 ]->y = 0;
-        m_pSpriteClips[ 0 ]->w = 100;
-        m_pSpriteClips[ 0 ]->h = 100;
+        m_pSpriteClips[ 0 ].x = 0;
+        m_pSpriteClips[ 0 ].y = 0;
+        m_pSpriteClips[ 0 ].w = 100;
+        m_pSpriteClips[ 0 ].h = 100;
 
-        m_pSpriteClips[ 1 ]->x = 100;
-        m_pSpriteClips[ 1 ]->y = 0;
-        m_pSpriteClips[ 1 ]->w = 100;
-        m_pSpriteClips[ 1 ]->h = 100;
+        m_pSpriteClips[ 1 ].x = 100;
+        m_pSpriteClips[ 1 ].y = 0;
+        m_pSpriteClips[ 1 ].w = 100;
+        m_pSpriteClips[ 1 ].h = 100;
 
-        m_pSpriteClips[ 2 ]->x = 0;
-        m_pSpriteClips[ 2 ]->y = 100;
-        m_pSpriteClips[ 2 ]->w = 100;
-        m_pSpriteClips[ 2 ]->h = 100;
+        m_pSpriteClips[ 2 ].x = 0;
+        m_pSpriteClips[ 2 ].y = 100;
+        m_pSpriteClips[ 2 ].w = 100;
+        m_pSpriteClips[ 2 ].h = 100;
 
-        m_pSpriteClips[ 3 ]->x = 100;
-        m_pSpriteClips[ 3 ]->y = 100;
-        m_pSpriteClips[ 3 ]->w = 100;
-        m_pSpriteClips[ 3 ]->h = 100;
+        m_pSpriteClips[ 3 ].x = 100;
+        m_pSpriteClips[ 3 ].y = 100;
+        m_pSpriteClips[ 3 ].w = 100;
+        m_pSpriteClips[ 3 ].h = 100;
     }
     return lSuccess;
 }
@@ -141,10 +141,10 @@ bool drkrWindow::renderScreen()
         PRINT_ERROR( SDL_GetError() );
     }
 
-    m_pSpriteSheetTexture->render( 0, 0, m_pSpriteClips[ 0 ] );
-    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 1 ]->w, 0, m_pSpriteClips[ 1 ] );
-    m_pSpriteSheetTexture->render( 0, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 2 ]->h, m_pSpriteClips[ 2 ] );
-    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 3 ]->w, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 3 ]->h, m_pSpriteClips[ 3 ] );
+    m_pSpriteSheetTexture->render( 0, 0, &m_pSpriteClips[ 0 ] );
+    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 1 ].w, 0, &m_pSpriteClips[ 1 ] );
+    m_pSpriteSheetTexture->render( 0, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 2 ].h, &m_pSpriteClips[ 2 ] );
+    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 3 ].w, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 3 ].h, &m_pSpriteClips[ 3 ] );
 
     SDL_RenderPresent( m_pRenderer );
 
