@@ -9,6 +9,8 @@ SDL.h
 				SDL_INIT_EVENTS         0x00004000u
 				SDL_INIT_NOPARACHUTE    0x00100000u 
 				
+			void SDL_Quit(void) 	Cleans up initialized subsystems. Call upon exit condition.
+				
 SDL_video.h	
 			SDL_CreateWindow(const char *title, int x, int y, int w, int h, Uint32 flags)	Create a window with the specified position, dimensions, and flags.
 				for x and y:
@@ -25,3 +27,20 @@ SDL_video.h
 					::SDL_WINDOW_MAXIMIZED
 					::SDL_WINDOW_INPUT_GRABBED
 					::SDL_WINDOW_VULKAN
+					
+			SDL_GetWindowSurface(SDL_Window* window)	Gets the SDL surface associated with the window.
+			
+			int SDL_UpdateWindowSurface(SDL_Window* window)		Copies window surface to the screen.
+			
+			void SDL_DestroyWindow(SDL_Window* window)		Destroys window.
+			
+					
+SDL_error.h
+			SDL_GetError()	Retrieves message about the last error occured.
+			
+SDL_surface.h
+			int SDL_FillRect(SDL_Surface* dst, const SDL_Rect* rect, Uint32 color) 		Performs a fast fill of a rectangle with a specific color.
+			
+SDL_timer.h
+			void SDL_Delay(Uint32 ms) 	Waits a specified number of milliseconds before returning.
+			
