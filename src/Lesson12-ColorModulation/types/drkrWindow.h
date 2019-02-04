@@ -18,10 +18,9 @@ public:
     bool loadMedia();
     void close();
 
-    bool renderScreen();
+    bool renderScreen( uint8_t aR, uint8_t aG, uint8_t aB );
 private:
     SDL_Renderer* m_pRenderer           = nullptr;
     SDL_Window*   m_pWindow             = nullptr;
-    SDL_Rect*     m_pSpriteClips[ 4 ];
-    drkrTexture*  m_pSpriteSheetTexture = nullptr;
+    drkrTexture*  m_pModulatedTexture   = nullptr;
 };

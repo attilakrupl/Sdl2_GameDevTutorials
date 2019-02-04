@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson10-ColorKeying", "Les
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson11-ClipRenderingAndStyleSheets", "Lesson11-ClipRenderingAndStyleSheets\Lesson11-ClipRenderingAndStyleSheets.vcxproj", "{62A3FAFD-CE9A-4725-84CA-DDD919FF0C91}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lesson12-ColorModulation", "Lesson12-ColorModulation\Lesson12-ColorModulation.vcxproj", "{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +123,14 @@ Global
 		{62A3FAFD-CE9A-4725-84CA-DDD919FF0C91}.Release|x64.Build.0 = Release|x64
 		{62A3FAFD-CE9A-4725-84CA-DDD919FF0C91}.Release|x86.ActiveCfg = Release|Win32
 		{62A3FAFD-CE9A-4725-84CA-DDD919FF0C91}.Release|x86.Build.0 = Release|Win32
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Debug|x64.ActiveCfg = Debug|x64
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Debug|x64.Build.0 = Debug|x64
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Debug|x86.ActiveCfg = Debug|Win32
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Debug|x86.Build.0 = Debug|Win32
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Release|x64.ActiveCfg = Release|x64
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Release|x64.Build.0 = Release|x64
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Release|x86.ActiveCfg = Release|Win32
+		{02E8F4FC-3A3A-4E46-9567-D99FE787CF1A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

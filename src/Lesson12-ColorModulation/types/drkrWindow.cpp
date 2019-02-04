@@ -24,10 +24,6 @@ drkrWindow::drkrWindow()
 
 drkrWindow::~drkrWindow()
 {
-    for( int i = 0; i < 4; ++i )
-    {
-        delete m_pSpriteClips[ i ];
-    }
 }
 
 bool drkrWindow::init()
@@ -86,45 +82,18 @@ bool drkrWindow::init()
 bool drkrWindow::loadMedia()
 {
     bool lSuccess              = true;
-         m_pSpriteSheetTexture = new drkrTexture( m_pRenderer );
-    if( DRKR_NOT( m_pSpriteSheetTexture->loadFromFile( "../../../../resources/png/dots.png" ) ) )
+         m_pModulatedTexture = new drkrTexture( m_pRenderer );
+    if( DRKR_NOT( m_pModulatedTexture->loadFromFile( "../../../../resources/png/colors.png" ) ) )
     {
         PRINT_ERROR( "Failed to load Foo's texture image!\n" );
         lSuccess = false;
-    }
-    else
-    {
-        for( int i = 0; i < 4; ++i )
-        {
-            m_pSpriteClips[ i ] = new SDL_Rect();
-        }
-
-        m_pSpriteClips[ 0 ]->x = 0;
-        m_pSpriteClips[ 0 ]->y = 0;
-        m_pSpriteClips[ 0 ]->w = 100;
-        m_pSpriteClips[ 0 ]->h = 100;
-
-        m_pSpriteClips[ 1 ]->x = 100;
-        m_pSpriteClips[ 1 ]->y = 0;
-        m_pSpriteClips[ 1 ]->w = 100;
-        m_pSpriteClips[ 1 ]->h = 100;
-
-        m_pSpriteClips[ 2 ]->x = 0;
-        m_pSpriteClips[ 2 ]->y = 100;
-        m_pSpriteClips[ 2 ]->w = 100;
-        m_pSpriteClips[ 2 ]->h = 100;
-
-        m_pSpriteClips[ 3 ]->x = 100;
-        m_pSpriteClips[ 3 ]->y = 100;
-        m_pSpriteClips[ 3 ]->w = 100;
-        m_pSpriteClips[ 3 ]->h = 100;
     }
     return lSuccess;
 }
 
 void drkrWindow::close()
 {
-    m_pSpriteSheetTexture->free();
+    m_pModulatedTexture->free();
     SDL_DestroyRenderer( m_pRenderer );
     SDL_DestroyWindow( m_pWindow );
     m_pRenderer = nullptr;
@@ -134,7 +103,7 @@ void drkrWindow::close()
     SDL_Quit();
 }
 
-bool drkrWindow::renderScreen()
+bool drkrWindow::renderScreen( uint8_t aR, uint8_t aG, uint8_t aB )
 {
     int lRenderDrawColorResult = SDL_SetRenderDrawColor( m_pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
     if( DRKR_FAIL( lRenderDrawColorResult ) )
@@ -149,11 +118,9 @@ bool drkrWindow::renderScreen()
         return false;
         PRINT_ERROR( SDL_GetError() );
     }
-
-    m_pSpriteSheetTexture->render( 0, 0, m_pSpriteClips[ 0 ] );
-    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 1 ]->w, 0, m_pSpriteClips[ 1 ] );
-    m_pSpriteSheetTexture->render( 0, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 2 ]->h, m_pSpriteClips[ 2 ] );
-    m_pSpriteSheetTexture->render( DRKR::SCREEN_WIDTH - m_pSpriteClips[ 3 ]->w, DRKR::SCREEN_HEIGHT - m_pSpriteClips[ 3 ]->h, m_pSpriteClips[ 3 ] );
+    
+    m_pModulatedTexture->setColor( aR , aG , aB );
+    m_pModulatedTexture->render( 0, 0 );
 
     SDL_RenderPresent( m_pRenderer );
 
