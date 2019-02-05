@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="types\drkrEventHandler.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="types\drkrWindow.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="types\drkrTexture.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="types">
+      <UniqueIdentifier>{75bf38f9-bbfb-4a68-a93a-8ba3422d9a40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="types\drkrEventHandler.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="types\drkrWindow.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="types\drkrTexture.h">
+      <Filter>types</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
